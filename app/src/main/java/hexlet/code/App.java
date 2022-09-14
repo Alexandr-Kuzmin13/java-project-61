@@ -13,6 +13,7 @@ public class App {
                 3 - Calc
                 4 - GCD
                 5 - Progression
+                6 - Prime
                 0 - Exit""");
         System.out.print("Your choice: ");
         var first = number.nextInt();
@@ -23,6 +24,7 @@ public class App {
             case 3 -> Calc.gameCalc();
             case 4 -> GCD.gameGCD();
             case 5 -> Progression.gameProgression();
+            case 6 -> Prime.gamePrime();
         }
 
     }
