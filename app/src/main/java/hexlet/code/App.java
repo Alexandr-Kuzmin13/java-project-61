@@ -11,6 +11,7 @@ public class App {
                 1 - Greet
                 2 - Even
                 3 - Calc
+                4 - GCD
                 0 - Exit""");
         System.out.print("Your choice: ");
         var first = number.nextInt();
@@ -19,6 +20,7 @@ public class App {
             case 1 -> Greet.greeting();
             case 2 -> Even.gameEven();
             case 3 -> Calc.gameCalc();
+            case 4 -> GCD.gameGCD();
         }
 
     }
