@@ -1,12 +1,3 @@
-build/
-out/
-.gradle/
-.idea/
-.iml
-.classpath
-.project
-.settings/
-bin/
 # Ignore Gradle project-specific cache directory
 .gradle
 
@@ -18,4 +9,5 @@ build
 .settings
 bin
 .project*
-/.idea/
+.classpath
+.idea/
