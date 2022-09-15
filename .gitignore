@@ -1,4 +1,8 @@
 
 **/logs/
-
 .idea
+.run
+.jpb
+build
+!/checkstyle.xml
+.gradle
