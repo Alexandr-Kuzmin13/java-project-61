@@ -11,8 +11,4 @@ bin
 .project*
 .classpath
 
-!/.idea/
-!/.idea/codeStyles/
-!/.idea/codeStyles/codeStyleConfig.xml
-!/.idea/codeStyles/Project.xml
-!/.idea/gradle.xml
+.idea
