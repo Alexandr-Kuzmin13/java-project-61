@@ -6,3 +6,7 @@
 build
 !/checkstyle.xml
 .gradle
+!/.jpb/
+!/.run/
+!/gradle/
+/build/
