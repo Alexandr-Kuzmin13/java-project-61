@@ -12,8 +12,10 @@ public class Calc {
 
         Scanner newAnswer = new Scanner(System.in);
         System.out.println("What is the result of the expression?");
-        for (var i = 0; i < 3; i++) {
-            var x1 = (int) (Math.random() * 10);
+        final int NUMBER_OF_CYCLES = 3;
+        for (var i = 0; i < NUMBER_OF_CYCLES; i++) {
+            final int NUMBER_OF_RANDOM = 10;
+            var x1 = (int) (Math.random() * NUMBER_OF_RANDOM);
             var x2 = (int) (Math.random() * 100);
             var result = 0;
             if (x1 == 1 || x1 == 4 || x1 == 7) {

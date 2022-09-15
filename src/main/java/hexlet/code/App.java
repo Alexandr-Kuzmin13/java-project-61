@@ -21,7 +21,6 @@ public class App {
         switch (first) {
             case 1 -> Greet.greeting();
             case 2 -> Even.gameEven();
-            // 3 - номер игры;
             case 3 -> Calc.gameCalc();
             case 4 -> GCD.gameGCD();
             case 5 -> Progression.gameProgression();

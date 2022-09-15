@@ -1,12 +1,12 @@
+/.gradle/
+
+# Ignore Gradle build output directory
+/build/
 
 **/logs/
-.idea
-.run
-.jpb
-build
-!/checkstyle.xml
-.gradle
-!/.jpb/
-!/.run/
-!/gradle/
-/build/
+
+.settings
+bin
+.project*
+.classpath
+/.idea/
