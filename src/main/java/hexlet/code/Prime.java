@@ -1,33 +1,38 @@
 package hexlet.code;
 
+import java.nio.charset.Charset;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Prime {
     public static void gamePrime() {
-        Scanner name = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in, Charset.defaultCharset());
         System.out.print("Welcome to the Brain Games!\n"
                 + "May I have your name? ");
-        var newName = name.next();
+        var newName = scanner.next();
         System.out.println("Hello, " + newName + "!");
 
-        Scanner newAnswer = new Scanner(System.in);
+        //Scanner newAnswer = new Scanner(System.in);
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        int[] simple = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
-        for (var i = 0; i < 3; i++) {
+        final int cykle = 3;
+        for (var i = 0; i < cykle; i++) {
             Random rnd = new Random();
-            int x1 = rnd.nextInt(100);
+            final int sizeRandom = 100;
+            int x1 = rnd.nextInt(sizeRandom);
             System.out.println("Question: " + x1);
             System.out.print("Your answer: ");
-            var answer = newAnswer.next();
+            var answer = scanner.next();
 
             var result = "";
-            for (int k : simple) {
-                if (k == x1) {
-                    result = "yes";
+            if (x1 < 2) {
+                result = "no";
+            }
+            for (var j = 2; j < x1; j++) {
+                if (x1 % j == 0) {
+                    result = "no";
                     break;
                 } else {
-                    result = "no";
+                    result = "yes";
                 }
             }
             if (result.equals(answer)) {

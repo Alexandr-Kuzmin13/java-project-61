@@ -1,49 +1,52 @@
 package hexlet.code;
 
 import java.util.Scanner;
+import java.util.Random;
 
 public class Calc {
     public static void gameCalc() {
-        Scanner name = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Welcome to the Brain Games!\n"
                 + "May I have your name? ");
-        var newName = name.next();
+        var newName = scanner.next();
         System.out.println("Hello, " + newName + "!");
 
         System.out.println("What is the result of the expression?");
-        for (var i = 0; i < 3; i++) {
-            var x1 = (int) (Math.random() * 10);
-            var x2 = (int) (Math.random() * 100);
+        final int numberCykles = 3;
+        for (var i = 0; i < numberCykles; i++) {
+            Random rnd = new Random();
+            final int sizeRandom = 3;
+            final int number1SizeRandom = 10;
+            final int number2SizeRandom = 100;
+            var x1 = (int) (Math.random() * number1SizeRandom);
+            var x2 = (int) (Math.random() * number2SizeRandom);
+            int x3 = rnd.nextInt(sizeRandom);
             var result = 0;
-            if (x1 == 1 || x1 == 4 || x1 == 7) {
+            final int numberNull = 0;
+            final int one = 1;
+
+            if (x3 == numberNull) {
                 result = x1 + x2;
                 System.out.println("Question: " + x1 + " + " + x2);
-            } else if (x1 == 2 || x1 == 5 || x1 == 8) {
+            } else if (x3 == one) {
                 result = x1 - x2;
                 System.out.println("Question: " + x1 + " - " + x2);
-            } else if (x1 == 3 || x1 == 6 || x1 == 9 || x1 == 0) {
+            } else {
                 result = x1 * x2;
                 System.out.println("Question: " + x1 + " * " + x2);
             }
 
-            Scanner newAnswer = new Scanner(System.in);
             System.out.print("Your answer: ");
 
-            if (newAnswer.hasNextInt()) {
-                var answer = newAnswer.nextInt();
-                if (x1 + x2 == answer || x1 - x2 == answer || x1 * x2 == answer) {
-                    System.out.println("Correct!");
-                } else if (x1 + x2 != answer || x1 - x2 != answer || x1 * x2 != answer) {
-                    System.out.println("'" + answer + "'" + "is wrong answer ;(. Correct answer was" + "'" + result + "'.\n"
-                            + "Let's try again, " + newName + "!");
-                    break;
-                }
+            var answer = scanner.nextInt();
+            if (result == answer) {
+                System.out.println("Correct!");
             } else {
-                    System.out.println("'" + "Your Answer" + "'" + "is wrong answer ;(. Correct answer was" + "'" + result + "'.\n"
-                            + "Let's try again, " + newName + "!");
-                    break;
+                System.out.print("'" + answer + "'" + " is wrong answer ;(. ");
+                System.out.println("Correct answer was " + "'" + result + "'.");
+                System.out.println("Let's try again, " + newName + "!");
+                return;
             }
-
             if (i == 2) {
                 System.out.println("Congratulations, " + newName + "!");
             }
