@@ -1,10 +1,22 @@
 package hexlet.code;
 
+import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
+
 import java.nio.charset.Charset;
 import java.util.Scanner;
 
 public class App {
-
+    static final int NULL = 0;
+    static final int ONE = 1;
+    static final int TWO = 2;
+    static final int THREE = 3;
+    static final int FOUR = 4;
+    static final int FIVE = 5;
+    static final int SIX = 6;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in, Charset.defaultCharset());
         System.out.println("""
@@ -19,18 +31,15 @@ public class App {
         System.out.print("Your choice: ");
         var choose = scanner.nextInt();
         System.out.println(" ");
-        final int numberNull = 0;
-        final int numberOne = 1;
-        final int numberTwo = 2;
-        final int numberThree = 3;
-        final int numberFour = 4;
-        final int numberFive = 5;
-        final int numberSix = 6;
         switch (choose) {
-            case numberNull -> {
+            case NULL -> {
             }
-            case numberOne -> Greet.greeting();
-            case numberTwo, numberThree, numberFour, numberFive, numberSix -> Engine.allEngine(choose);
+            case ONE -> Greet.greeting();
+            case TWO -> Even.engine();
+            case SIX -> Prime.engine();
+            case THREE -> Calc.engine();
+            case FOUR -> GCD.engine();
+            case FIVE -> Progression.engine();
             default -> throw new IllegalStateException("Unexpected value: " + choose);
         }
         scanner.close();
