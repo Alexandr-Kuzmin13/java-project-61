@@ -32,8 +32,7 @@ public class App {
         var choose = scanner.nextInt();
         System.out.println(" ");
         switch (choose) {
-            case NULL -> {
-            }
+            case NULL -> System.out.println("Goodbye!");
             case ONE -> Greet.greeting();
             case TWO -> Even.engine();
             case SIX -> Prime.engine();
