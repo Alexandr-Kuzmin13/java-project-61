@@ -1,42 +1,35 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
-import hexlet.code.Game;
-
 import java.util.Random;
 
 public final class Prime implements Game {
     private static final int SIZE_RANDOM = 100;
 
-    public static void engine() {
-        Engine.allEngine(new Prime());
+    @Override
+    public String getTask() {
+        return  "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
 
     @Override
-    public void taskGame() {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-    }
+    public String[] generateAnswer() {
+        String[] meaning = new String[2];
 
-    @Override
-    public String generate() {
         Random rnd = new Random();
-        return String.valueOf(rnd.nextInt(SIZE_RANDOM));
-    }
-
-    @Override
-    public String answer(String number) {
+        meaning[0] = String.valueOf(rnd.nextInt(SIZE_RANDOM));
         String result = null;
-        if (Integer.parseInt(number) < 2) {
+        if (Integer.parseInt(meaning[0]) < 2) {
             result = "no";
         }
-        for (var j = 2; j < Integer.parseInt(number); j++) {
-            if (Integer.parseInt(number) % j == 0) {
+        for (var j = 2; j < Integer.parseInt(meaning[0]); j++) {
+            if (Integer.parseInt(meaning[0]) % j == 0) {
                 result = "no";
                 break;
             } else {
                 result = "yes";
             }
         }
-        return result;
+        meaning[1] = result;
+
+        return meaning;
     }
 }

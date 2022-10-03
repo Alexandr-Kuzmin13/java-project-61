@@ -1,8 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
-import hexlet.code.Game;
-
 import java.util.Random;
 
 public final class Calc implements Game {
@@ -11,34 +8,30 @@ public final class Calc implements Game {
     private static final int SIZE_RANDOM2 = 100;
     private static final char[] OPERATORS = {'+', '-', '*'};
 
-    public static void engine() {
-        Engine.allEngine(new Calc());
+    @Override
+    public String getTask() {
+        return  "What is the result of the expression?";
     }
 
     @Override
-    public void taskGame() {
-        System.out.println("What is the result of the expression?");
-    }
+    public String[] generateAnswer() {
+        String[] meaning = new String[2];
 
-    @Override
-    public String generate() {
         Random rnd = new Random();
         var firstNumber = rnd.nextInt(SIZE_RANDOM1);
         var secondNumber = rnd.nextInt(SIZE_RANDOM2);
         char operator = OPERATORS[rnd.nextInt(OPERATOR_TYPE)];
-        return String.valueOf(firstNumber) + operator + secondNumber;
-    }
+        meaning[0] = String.valueOf(firstNumber) + operator + secondNumber;
 
-    @Override
-    public String answer(String number) {
-        var firstNumber = Integer.parseInt(number.substring(0, 1));
-        var secondNumber = Integer.parseInt(number.substring(2));
+        var firstNumberAfter = Integer.parseInt(meaning[0].substring(0, 1));
+        var secondNumberAfter = Integer.parseInt(meaning[0].substring(2));
+        switch (meaning[0].charAt(1)) {
+            case '+' -> meaning[1] = String.valueOf(firstNumberAfter + secondNumberAfter);
+            case '-' -> meaning[1] = String.valueOf(firstNumberAfter - secondNumberAfter);
+            case '*' -> meaning[1] = String.valueOf(firstNumberAfter * secondNumberAfter);
+            default -> throw new RuntimeException("Unknown operator: " + meaning[0].charAt(1));
+        }
 
-        return switch (number.charAt(1)) {
-            case '+' -> String.valueOf(firstNumber + secondNumber);
-            case '-' -> String.valueOf(firstNumber - secondNumber);
-            case '*' -> String.valueOf(firstNumber * secondNumber);
-            default -> throw new RuntimeException("Unknown operator: " + number.charAt(1));
-        };
+        return meaning;
     }
 }

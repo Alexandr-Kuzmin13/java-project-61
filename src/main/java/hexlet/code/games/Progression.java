@@ -1,8 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
-import hexlet.code.Game;
-
 import java.util.Random;
 
 public final class Progression implements Game {
@@ -10,19 +7,17 @@ public final class Progression implements Game {
     private static final int SIZE_RANDOM1 = 9;
     private static final int SIZE_RANDOM2 = 100;
 
-    public static void engine() {
-        Engine.allEngine(new Progression());
+    @Override
+    public String getTask() {
+        return  "What number is missing in the progression?";
     }
 
     @Override
-    public void taskGame() {
-        System.out.println("What number is missing in the progression?");
-    }
+    public String[] generateAnswer() {
+        String[] meaning = new String[2];
 
-    @Override
-    public String generate() {
         Random rnd = new Random();
-        int element = 1 + rnd.nextInt(SIZE_RANDOM2);
+        var element = 1 + rnd.nextInt(SIZE_RANDOM2);
         var step = 1 + rnd.nextInt(SIZE_RANDOM1);
         var missingNumber = rnd.nextInt(SIZE_RANDOM1);
         String[] progress = new String[SIZE_ARRAY];
@@ -32,17 +27,14 @@ public final class Progression implements Game {
             progress[k] = String.valueOf(element);
         }
         progress[missingNumber] = "..";
-        return String.join(" ", progress);
-    }
-
-    @Override
-    public String answer(String number) {
-        String[] progress = number.split(" ");
+        meaning[0] = String.join(" ", progress);
+        String[] progressAfter = meaning[0].split(" ");
         for (var k = 0; k < SIZE_ARRAY; k++) {
-            if (progress[k].equals("..")) {
-                return String.valueOf((Integer.parseInt(progress[k + 1]) + Integer.parseInt(progress[k - 1])) / 2);
+            if (progressAfter[k].equals("..")) {
+                meaning[1] = String.valueOf((Integer.parseInt(progressAfter[k + 1]) + Integer.parseInt(progressAfter[k - 1])) / 2);
             }
         }
-        return null;
+
+        return meaning;
     }
 }
