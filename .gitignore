@@ -9,7 +9,7 @@
 bin
 .project*
 .classpath
-/.idea/
+/app/.idea/
 # Ignore Gradle project-specific cache directory
 .gradle
 
