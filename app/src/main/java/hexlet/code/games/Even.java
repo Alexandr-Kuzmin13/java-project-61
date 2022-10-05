@@ -11,12 +11,13 @@ public final class Even implements Game {
     }
     @Override
     public String[] generateAnswer() {
-        String[] meaning = new String[2];
+        String[] values = new String[2];
 
         Random rnd = new Random();
-        meaning[0] = String.valueOf(rnd.nextInt(SIZE_RANDOM));
-        meaning[1] = (Integer.parseInt(meaning[0]) % 2 == 0) ? "yes" : "no";
+        var newRandom = rnd.nextInt(SIZE_RANDOM);
+        values[0] = String.valueOf(newRandom);
+        values[1] = (newRandom % 2 == 0) ? "yes" : "no";
 
-        return meaning;
+        return values;
     }
 }

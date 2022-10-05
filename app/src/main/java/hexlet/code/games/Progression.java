@@ -14,7 +14,7 @@ public final class Progression implements Game {
 
     @Override
     public String[] generateAnswer() {
-        String[] meaning = new String[2];
+        String[] values = new String[2];
 
         Random rnd = new Random();
         var element = 1 + rnd.nextInt(SIZE_RANDOM2);
@@ -22,19 +22,18 @@ public final class Progression implements Game {
         var missingNumber = rnd.nextInt(SIZE_RANDOM1);
         String[] progress = new String[SIZE_ARRAY];
         progress[0] = String.valueOf(element);
+
         for (var k = 1; k < SIZE_ARRAY; k++) {
             element = element + step;
             progress[k] = String.valueOf(element);
-        }
-        progress[missingNumber] = "..";
-        meaning[0] = String.join(" ", progress);
-        String[] progressAfter = meaning[0].split(" ");
-        for (var k = 0; k < SIZE_ARRAY; k++) {
-            if (progressAfter[k].equals("..")) {
-                meaning[1] = String.valueOf((Integer.parseInt(progressAfter[k + 1]) + Integer.parseInt(progressAfter[k - 1])) / 2);
+            if (k == missingNumber) {
+                values[1] = progress[k];
+                progress[k] = "..";
             }
         }
 
-        return meaning;
+        values[0] = String.join(" ", progress);
+
+        return values;
     }
 }

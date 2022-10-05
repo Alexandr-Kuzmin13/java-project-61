@@ -1,10 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 
 import java.nio.charset.Charset;
 import java.util.Scanner;
@@ -33,7 +33,7 @@ public class App {
         System.out.println(" ");
         switch (choose) {
             case NULL_CODE -> System.out.println("Goodbye!");
-            case GREET_CODE -> Greet.greeting();
+            case GREET_CODE -> hexlet.code.Greet.greeting();
             case EVEN_CODE -> Engine.run(new Even());
             case PRIME_CODE -> Engine.run(new Prime());
             case CALC_CODE -> Engine.run(new Calc());

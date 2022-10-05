@@ -12,24 +12,25 @@ public final class Prime implements Game {
 
     @Override
     public String[] generateAnswer() {
-        String[] meaning = new String[2];
+        String[] values = new String[2];
 
         Random rnd = new Random();
-        meaning[0] = String.valueOf(rnd.nextInt(SIZE_RANDOM));
+        var newRandom = rnd.nextInt(SIZE_RANDOM);
+        values[0] = String.valueOf(newRandom);
         String result = null;
-        if (Integer.parseInt(meaning[0]) < 2) {
+        if (newRandom < 2) {
             result = "no";
         }
-        for (var j = 2; j < Integer.parseInt(meaning[0]); j++) {
-            if (Integer.parseInt(meaning[0]) % j == 0) {
+        for (var j = 2; j < newRandom; j++) {
+            if (newRandom % j == 0) {
                 result = "no";
                 break;
             } else {
                 result = "yes";
             }
         }
-        meaning[1] = result;
+        values[1] = result;
 
-        return meaning;
+        return values;
     }
 }
