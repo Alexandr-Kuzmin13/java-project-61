@@ -19,7 +19,7 @@ public final class Progression implements Game {
         Random rnd = new Random();
         var element = 1 + rnd.nextInt(SIZE_RANDOM2);
         var step = 1 + rnd.nextInt(SIZE_RANDOM1);
-        var missingNumber = rnd.nextInt(SIZE_RANDOM1);
+        var missingNumber = 1 + rnd.nextInt(SIZE_RANDOM1);
         String[] progress = new String[SIZE_ARRAY];
         progress[0] = String.valueOf(element);
 
