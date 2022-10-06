@@ -21,7 +21,7 @@ public final class Calc implements Game {
         var firstNumber = rnd.nextInt(SIZE_RANDOM1);
         var secondNumber = rnd.nextInt(SIZE_RANDOM2);
         String operator = OPERATORS[rnd.nextInt(OPERATOR_TYPE)];
-        values[0] = firstNumber + operator + secondNumber;
+        values[0] = firstNumber + " " + operator + " " + secondNumber;
 
         if (operator.equals("+")) {
             values[1] = String.valueOf(firstNumber + secondNumber);
