@@ -23,13 +23,23 @@ public final class Calc implements Game {
         String operator = OPERATORS[rnd.nextInt(OPERATOR_TYPE)];
         values[0] = firstNumber + " " + operator + " " + secondNumber;
 
-        switch (operator) {
-            case "+" -> values[1] = String.valueOf(firstNumber + secondNumber);
-            case "-" -> values[1] = String.valueOf(firstNumber - secondNumber);
-            case "*" -> values[1] = String.valueOf(firstNumber * secondNumber);
-            default -> throw new RuntimeException("Unknown operator: " + operator);
-        }
+        values[1] = calculate(firstNumber, secondNumber, operator);
 
         return values;
     }
+    private static String calculate(int arg1, int arg2, String operator) {
+        switch (operator) {
+            case "+" -> {
+                return String.valueOf(arg1 + arg2);
+            }
+            case "-" -> {
+                return String.valueOf(arg1 - arg2);
+            }
+            case "*" -> {
+                return String.valueOf(arg1 * arg2);
+            }
+            default -> throw new RuntimeException("Unknown operator: " + operator);
+        }
+    }
+
 }
